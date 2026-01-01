@@ -26,6 +26,10 @@ public class LeaveRequest {
     @Column(nullable = false)
     private String status;
 
+    @Column(nullable = false)
+private String type;
+
+
     // ===== GETTERS =====
     public Long getId() { return id; }
     public Long getEmployeeId() { return employeeId; }
@@ -33,7 +37,9 @@ public class LeaveRequest {
     public LocalDate getEndDate() { return endDate; }
     public String getReason() { return reason; }
     public String getStatus() { return status; }
-
+    public String getType() { return type; }
+    
+    
     // ===== SETTERS =====
     public void setId(Long id) { this.id = id; }
     public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
@@ -41,4 +47,5 @@ public class LeaveRequest {
     public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
     public void setReason(String reason) { this.reason = reason; }
     public void setStatus(String status) { this.status = status; }
+    public void setType(String type) { this.type = type; }
 }
