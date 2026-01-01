@@ -107,8 +107,8 @@ Long employeeId = employee.getId();
 
             LeaveRequest lr = new LeaveRequest();
             lr.setEmployeeId(employeeId);
-            lr.setFromDate(LocalDate.now().minusDays(5));
-            lr.setToDate(LocalDate.now().minusDays(3));
+            lr.setStartDate(LocalDate.now().minusDays(5));
+            lr.setEndDate(LocalDate.now().minusDays(3));
             lr.setReason("Medical");
             lr.setStatus("Approved");
 

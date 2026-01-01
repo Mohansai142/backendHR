@@ -14,11 +14,11 @@ public class LeaveRequest {
     @Column(name = "employee_id", nullable = false)
     private Long employeeId;
 
-    @Column(name = "from_date", nullable = false)
-    private LocalDate fromDate;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
-    private LocalDate toDate;
+    private LocalDate endDate;
 
     @Column(nullable = false)
     private String reason;
@@ -29,16 +29,16 @@ public class LeaveRequest {
     // ===== GETTERS =====
     public Long getId() { return id; }
     public Long getEmployeeId() { return employeeId; }
-    public LocalDate getFromDate() { return fromDate; }
-    public LocalDate getToDate() { return toDate; }
+    public LocalDate getStartDate() { return startDate; }
+    public LocalDate getEndDate() { return endDate; }
     public String getReason() { return reason; }
     public String getStatus() { return status; }
 
     // ===== SETTERS =====
     public void setId(Long id) { this.id = id; }
     public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
-    public void setFromDate(LocalDate fromDate) { this.fromDate = fromDate; }
-    public void setToDate(LocalDate toDate) { this.toDate = toDate; }
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
     public void setReason(String reason) { this.reason = reason; }
     public void setStatus(String status) { this.status = status; }
 }
