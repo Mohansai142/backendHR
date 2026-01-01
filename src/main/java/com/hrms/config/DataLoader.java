@@ -111,6 +111,7 @@ Long employeeId = employee.getId();
             lr.setEndDate(LocalDate.now().minusDays(3));
             lr.setReason("Medical");
             lr.setStatus("Approved");
+            lr.setType("SICK");
 
             leaveRequestRepository.save(lr);
 
