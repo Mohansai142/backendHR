@@ -11,34 +11,66 @@ public class Performance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "employee_id", nullable = false)
     private Long employeeId;
 
-    @Column(nullable = false)
-    private String reviewPeriod; // e.g. Q4-2025
+    @Column(name = "review_period")
+    private String reviewPeriod;
 
-    @Column(nullable = false)
-    private Double rating; // 1.0 – 5.0
+    private int rating;
 
-    @Column(length = 500)
     private String comments;
 
-    @Column(nullable = false)
+    @Column(name = "review_date")
     private LocalDate reviewDate;
 
-    // Getters
-    public Long getId() { return id; }
-    public Long getEmployeeId() { return employeeId; }
-    public String getReviewPeriod() { return reviewPeriod; }
-    public Double getRating() { return rating; }
-    public String getComments() { return comments; }
-    public LocalDate getReviewDate() { return reviewDate; }
+    // ===== Getters =====
+    public Long getId() {
+        return id;
+    }
 
-    // Setters
-    public void setId(Long id) { this.id = id; }
-    public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
-    public void setReviewPeriod(String reviewPeriod) { this.reviewPeriod = reviewPeriod; }
-    public void setRating(Double rating) { this.rating = rating; }
-    public void setComments(String comments) { this.comments = comments; }
-    public void setReviewDate(LocalDate reviewDate) { this.reviewDate = reviewDate; }
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getReviewPeriod() {
+        return reviewPeriod;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public LocalDate getReviewDate() {
+        return reviewDate;
+    }
+
+    // ===== Setters =====
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setReviewPeriod(String reviewPeriod) {
+        this.reviewPeriod = reviewPeriod;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setReviewDate(LocalDate reviewDate) {
+        this.reviewDate = reviewDate;
+    }
 }

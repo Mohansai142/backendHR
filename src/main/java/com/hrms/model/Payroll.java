@@ -11,39 +11,29 @@ public class Payroll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "employee_id")
     private Long employeeId;
 
-    @Column(nullable = false)
-    private String month; // e.g. DECEMBER-2025
-
-    @Column(nullable = false)
-    private Double basicSalary;
-
-    @Column(nullable = false)
-    private Double deductions;
-
-    @Column(nullable = false)
-    private Double netSalary;
-
-    @Column(nullable = false)
+    private String month;
+    private double basicSalary;
+    private double deductions;
+    private double netSalary;
     private LocalDate generatedDate;
 
-    // Getters
+    // getters & setters
     public Long getId() { return id; }
     public Long getEmployeeId() { return employeeId; }
     public String getMonth() { return month; }
-    public Double getBasicSalary() { return basicSalary; }
-    public Double getDeductions() { return deductions; }
-    public Double getNetSalary() { return netSalary; }
+    public double getBasicSalary() { return basicSalary; }
+    public double getDeductions() { return deductions; }
+    public double getNetSalary() { return netSalary; }
     public LocalDate getGeneratedDate() { return generatedDate; }
 
-    // Setters
     public void setId(Long id) { this.id = id; }
     public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
     public void setMonth(String month) { this.month = month; }
-    public void setBasicSalary(Double basicSalary) { this.basicSalary = basicSalary; }
-    public void setDeductions(Double deductions) { this.deductions = deductions; }
-    public void setNetSalary(Double netSalary) { this.netSalary = netSalary; }
+    public void setBasicSalary(double basicSalary) { this.basicSalary = basicSalary; }
+    public void setDeductions(double deductions) { this.deductions = deductions; }
+    public void setNetSalary(double netSalary) { this.netSalary = netSalary; }
     public void setGeneratedDate(LocalDate generatedDate) { this.generatedDate = generatedDate; }
 }

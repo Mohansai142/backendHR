@@ -1,7 +1,7 @@
 package com.hrms.service;
 
 import com.hrms.model.LeaveRequest;
-import com.hrms.repository.LeaveRepository;
+import com.hrms.repository.LeaveRequestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class LeaveService {
 
-    private final LeaveRepository repo;
+    private final LeaveRequestRepository repo;
 
-    public LeaveService(LeaveRepository repo) {
+    public LeaveService(LeaveRequestRepository repo) {
         this.repo = repo;
     }
 

@@ -10,8 +10,8 @@ public class DashboardSummary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employee_name")
-    private String employeeName;
+    @Column(name = "employee_id", nullable = false)
+    private Long employeeId;
 
     @Column(name = "leave_balance")
     private int leaveBalance;
@@ -25,12 +25,13 @@ public class DashboardSummary {
     @Column(name = "performance_score")
     private double performanceScore;
 
+    // ===== GETTERS =====
     public Long getId() {
         return id;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
     public int getLeaveBalance() {
@@ -49,12 +50,13 @@ public class DashboardSummary {
         return performanceScore;
     }
 
+    // ===== SETTERS =====
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public void setLeaveBalance(int leaveBalance) {
