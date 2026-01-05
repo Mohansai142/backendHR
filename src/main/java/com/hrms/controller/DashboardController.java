@@ -1,28 +1,28 @@
 package com.hrms.controller;
 
-import com.hrms.model.DashboardSummary;
 import com.hrms.service.DashboardService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/dashboard")
+@PreAuthorize("hasRole('EMPLOYEE')")
 public class DashboardController {
 
-    private final DashboardService service;
+    private final DashboardService dashboardService;
 
-    public DashboardController(DashboardService service) {
-        this.service = service;
+    public DashboardController(DashboardService dashboardService) {
+        this.dashboardService = dashboardService;
     }
 
-    // 🔹 TEST ENDPOINT
-    @GetMapping("/test")
-    public String test() {
-        return "OK";
-    }
-
-    // 🔹 REAL ENDPOINT
-    @GetMapping("/summary/{id}")
-    public DashboardSummary getDashboard(@PathVariable Long id) {
-        return service.getDashboard(id);
+    @GetMapping
+    public Map<String, Object> getDashboard(Authentication authentication) {
+        Long employeeId = (Long) authentication.getPrincipal();
+        return dashboardService.getDashboard(employeeId);
     }
 }

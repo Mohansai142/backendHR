@@ -2,24 +2,29 @@ package com.hrms.controller;
 
 import com.hrms.model.Performance;
 import com.hrms.service.PerformanceService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/performance")
-@CrossOrigin(origins = "http://localhost:3000")
 public class PerformanceController {
 
-    private final PerformanceService service;
+    private final PerformanceService performanceService;
 
-    public PerformanceController(PerformanceService service) {
-        this.service = service;
+    public PerformanceController(PerformanceService performanceService) {
+        this.performanceService = performanceService;
     }
 
-    // 🔒 Only logged-in employee
-    @GetMapping("/{employeeId}")
-    public List<Performance> getMyPerformance(@PathVariable Long employeeId) {
-        return service.getPerformanceForEmployee(employeeId);
+    // =========================
+    // EMPLOYEE: View own performance
+    // =========================
+    @GetMapping
+    public List<Performance> getMyPerformance(Authentication authentication) {
+        Long employeeId = (Long) authentication.getPrincipal();
+        return performanceService.getPerformanceForEmployee(employeeId);
     }
 }

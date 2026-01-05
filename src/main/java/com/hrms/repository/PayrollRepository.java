@@ -8,4 +8,6 @@ import java.util.List;
 public interface PayrollRepository extends JpaRepository<Payroll, Long> {
 
     List<Payroll> findByEmployeeId(Long employeeId);
+
+    boolean existsByEmployeeIdAndMonth(Long employeeId, String month);
 }
